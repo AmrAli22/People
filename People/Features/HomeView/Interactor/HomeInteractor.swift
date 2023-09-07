@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-struct CreateContInteractor {
+struct HomeInteractor {
     
     //MARK: - Get People
     

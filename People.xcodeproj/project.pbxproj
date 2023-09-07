@@ -23,6 +23,8 @@
 		65D8DA6A2AAA758B0093EB2B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA692AAA758B0093EB2B /* HomePresenter.swift */; };
 		65D8DA6C2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA6B2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift */; };
 		65D8DA6E2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA6D2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift */; };
+		65D8DA722AAA82FC0093EB2B /* PersonHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA702AAA82FC0093EB2B /* PersonHomeCell.swift */; };
+		65D8DA732AAA82FC0093EB2B /* PersonHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D8DA712AAA82FC0093EB2B /* PersonHomeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		65D8DA692AAA758B0093EB2B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		65D8DA6B2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+TableViewDelegates.swift"; sourceTree = "<group>"; };
 		65D8DA6D2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+PresenterProtocols.swift"; sourceTree = "<group>"; };
+		65D8DA702AAA82FC0093EB2B /* PersonHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonHomeCell.swift; sourceTree = "<group>"; };
+		65D8DA712AAA82FC0093EB2B /* PersonHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonHomeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 		65D8DA512AAA61FB0093EB2B /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				65D8DA6F2AAA82D90093EB2B /* PersonHomeCell */,
 				65D8DA5A2AAA6AC10093EB2B /* StoryBoard */,
 				65D8DA562AAA6A980093EB2B /* View */,
 				65D8DA582AAA6AAA0093EB2B /* Presenter */,
@@ -190,6 +195,15 @@
 				65D8DA652AAA6E870093EB2B /* APIsConstants.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		65D8DA6F2AAA82D90093EB2B /* PersonHomeCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D8DA702AAA82FC0093EB2B /* PersonHomeCell.swift */,
+				65D8DA712AAA82FC0093EB2B /* PersonHomeCell.xib */,
+			);
+			path = PersonHomeCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +273,7 @@
 				65D8DA552AAA65E90093EB2B /* LaunchScreen.storyboard in Resources */,
 				65D8DA422AAA60F50093EB2B /* Assets.xcassets in Resources */,
 				65D8DA3D2AAA60F40093EB2B /* Home.storyboard in Resources */,
+				65D8DA732AAA82FC0093EB2B /* PersonHomeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +290,7 @@
 				65D8DA6A2AAA758B0093EB2B /* HomePresenter.swift in Sources */,
 				65D8DA402AAA60F40093EB2B /* People.xcdatamodeld in Sources */,
 				65D8DA642AAA6E6E0093EB2B /* DataResponse.swift in Sources */,
+				65D8DA722AAA82FC0093EB2B /* PersonHomeCell.swift in Sources */,
 				65D8DA3A2AAA60F40093EB2B /* HomeVC.swift in Sources */,
 				65D8DA682AAA6FD60093EB2B /* PersonModel.swift in Sources */,
 				65D8DA6E2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift in Sources */,

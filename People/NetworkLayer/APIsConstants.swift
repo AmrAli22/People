@@ -9,7 +9,6 @@ import Foundation
 
 public struct APIUrlsConstants {
     //MARK: - BASE API_MAIN_URL
-    public static let APIMainURL     = "https://randomuser.me/api/?results=15"
-    //"https://randomuser.me/api/"
+    public static let APIMainURL     = "https://randomuser.me/api/"
     
 }

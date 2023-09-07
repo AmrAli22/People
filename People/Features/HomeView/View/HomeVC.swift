@@ -25,7 +25,18 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupTableView()
         self.presenter?.GetPeople()        
     }
+    
+    func setupTableView(){
+        
+        tabelView.delegate = self
+        tabelView.dataSource = self
+        
+        let nibHomePersonCell = UINib(nibName: "PersonHomeCell", bundle: nil)
+        tabelView.register(nibHomePersonCell, forCellReuseIdentifier: PersonHomeCell.identifier)
+    }
+    
 }
 

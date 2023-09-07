@@ -43,7 +43,7 @@ class HomePresenter {
 
             if let peopleData = peopleData?.results {
                 self.peopleArr = peopleData
-                
+                self.homeView?.reloadTableView()
             }
         }
     }

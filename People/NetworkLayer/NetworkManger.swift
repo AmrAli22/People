@@ -21,10 +21,8 @@ class NetworkingManager {
         }
         
         recievedHeaders?.add(name: "Accept", value: "text/plain")
-        
-        let ComputedUrl = APIUrlsConstants.APIMainURL + url
-        
-        AF.request(ComputedUrl , method: method,parameters: params ?? [:], encoding: encoding, headers: recievedHeaders)
+                
+        AF.request(url , method: method,parameters: params ?? [:], encoding: encoding, headers: recievedHeaders)
             .responseJSON(completionHandler: {  response in
                 
                 print("URL:\(String(describing: response.request?.url))")

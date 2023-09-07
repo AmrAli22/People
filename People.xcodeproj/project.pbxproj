@@ -15,6 +15,8 @@
 		65D8DA532AAA64BF0093EB2B /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA522AAA64BF0093EB2B /* LaunchScreen.swift */; };
 		65D8DA552AAA65E90093EB2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D8DA542AAA65E90093EB2B /* LaunchScreen.storyboard */; };
 		65D8DA5C2AAA6CC60093EB2B /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA5B2AAA6CC60093EB2B /* HomeInteractor.swift */; };
+		65D8DA5F2AAA6D810093EB2B /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA5E2AAA6D810093EB2B /* NetworkManger.swift */; };
+		65D8DA622AAA6DC80093EB2B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 65D8DA612AAA6DC80093EB2B /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,7 @@
 		65D8DA522AAA64BF0093EB2B /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		65D8DA542AAA65E90093EB2B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65D8DA5B2AAA6CC60093EB2B /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		65D8DA5E2AAA6D810093EB2B /* NetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D8DA622AAA6DC80093EB2B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +64,7 @@
 		65D8DA342AAA60F40093EB2B /* People */ = {
 			isa = PBXGroup;
 			children = (
+				65D8DA5D2AAA6D6F0093EB2B /* NetworkLayer */,
 				65D8DA4F2AAA61E30093EB2B /* Features */,
 				65D8DA4E2AAA61D70093EB2B /* CoreDataModel */,
 				65D8DA4D2AAA61B30093EB2B /* Essentials */,
@@ -161,6 +166,14 @@
 			path = StoryBoard;
 			sourceTree = "<group>";
 		};
+		65D8DA5D2AAA6D6F0093EB2B /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				65D8DA5E2AAA6D810093EB2B /* NetworkManger.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +190,9 @@
 			dependencies = (
 			);
 			name = People;
+			packageProductDependencies = (
+				65D8DA612AAA6DC80093EB2B /* Alamofire */,
+			);
 			productName = People;
 			productReference = 65D8DA322AAA60F40093EB2B /* People.app */;
 			productType = "com.apple.product-type.application";
@@ -205,6 +221,9 @@
 				Base,
 			);
 			mainGroup = 65D8DA292AAA60F40093EB2B;
+			packageReferences = (
+				65D8DA602AAA6DC70093EB2B /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 65D8DA332AAA60F40093EB2B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D8DA5F2AAA6D810093EB2B /* NetworkManger.swift in Sources */,
 				65D8DA532AAA64BF0093EB2B /* LaunchScreen.swift in Sources */,
 				65D8DA402AAA60F40093EB2B /* People.xcdatamodeld in Sources */,
 				65D8DA3A2AAA60F40093EB2B /* HomeVC.swift in Sources */,
@@ -448,6 +468,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		65D8DA602AAA6DC70093EB2B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		65D8DA612AAA6DC80093EB2B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65D8DA602AAA6DC70093EB2B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		65D8DA3E2AAA60F40093EB2B /* People.xcdatamodeld */ = {

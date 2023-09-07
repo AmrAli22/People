@@ -19,6 +19,7 @@
 		65D8DA622AAA6DC80093EB2B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 65D8DA612AAA6DC80093EB2B /* Alamofire */; };
 		65D8DA642AAA6E6E0093EB2B /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA632AAA6E6E0093EB2B /* DataResponse.swift */; };
 		65D8DA662AAA6E870093EB2B /* APIsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA652AAA6E870093EB2B /* APIsConstants.swift */; };
+		65D8DA682AAA6FD60093EB2B /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA672AAA6FD60093EB2B /* PersonModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		65D8DA5E2AAA6D810093EB2B /* NetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
 		65D8DA632AAA6E6E0093EB2B /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
 		65D8DA652AAA6E870093EB2B /* APIsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsConstants.swift; sourceTree = "<group>"; };
+		65D8DA672AAA6FD60093EB2B /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		65D8DA572AAA6AA10093EB2B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				65D8DA672AAA6FD60093EB2B /* PersonModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				65D8DA402AAA60F40093EB2B /* People.xcdatamodeld in Sources */,
 				65D8DA642AAA6E6E0093EB2B /* DataResponse.swift in Sources */,
 				65D8DA3A2AAA60F40093EB2B /* HomeVC.swift in Sources */,
+				65D8DA682AAA6FD60093EB2B /* PersonModel.swift in Sources */,
 				65D8DA5C2AAA6CC60093EB2B /* HomeInteractor.swift in Sources */,
 				65D8DA362AAA60F40093EB2B /* AppDelegate.swift in Sources */,
 			);

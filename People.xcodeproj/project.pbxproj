@@ -21,6 +21,8 @@
 		65D8DA662AAA6E870093EB2B /* APIsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA652AAA6E870093EB2B /* APIsConstants.swift */; };
 		65D8DA682AAA6FD60093EB2B /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA672AAA6FD60093EB2B /* PersonModel.swift */; };
 		65D8DA6A2AAA758B0093EB2B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA692AAA758B0093EB2B /* HomePresenter.swift */; };
+		65D8DA6C2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA6B2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift */; };
+		65D8DA6E2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA6D2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		65D8DA652AAA6E870093EB2B /* APIsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsConstants.swift; sourceTree = "<group>"; };
 		65D8DA672AAA6FD60093EB2B /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 		65D8DA692AAA758B0093EB2B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		65D8DA6B2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+TableViewDelegates.swift"; sourceTree = "<group>"; };
+		65D8DA6D2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+PresenterProtocols.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				65D8DA392AAA60F40093EB2B /* HomeVC.swift */,
+				65D8DA6B2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift */,
+				65D8DA6D2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,7 +277,9 @@
 				65D8DA642AAA6E6E0093EB2B /* DataResponse.swift in Sources */,
 				65D8DA3A2AAA60F40093EB2B /* HomeVC.swift in Sources */,
 				65D8DA682AAA6FD60093EB2B /* PersonModel.swift in Sources */,
+				65D8DA6E2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift in Sources */,
 				65D8DA5C2AAA6CC60093EB2B /* HomeInteractor.swift in Sources */,
+				65D8DA6C2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift in Sources */,
 				65D8DA362AAA60F40093EB2B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,7 +425,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = People;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -446,7 +454,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = People;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

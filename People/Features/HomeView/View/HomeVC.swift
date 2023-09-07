@@ -11,11 +11,21 @@ class HomeVC: UIViewController {
 
     @IBOutlet weak var tabelView: UITableView!
     
+    var presenter : HomePresenter?
+    
+    let spinner = UIActivityIndicatorView(style: .large)
+    
+    public class func buildVC() -> HomeVC {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeView = storyboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        let pres = HomePresenter(homeView: homeView)
+        homeView.presenter = pres
+        return homeView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.presenter?.GetPeople()        
     }
-
-
 }
 

@@ -41,6 +41,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    func goToHome() {
+        let navigationController = UINavigationController(rootViewController: HomeVC.buildVC())
+        navigationController.navigationBar.isHidden = false
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
+    
+    
     // MARK: - Core Data stack
     
     lazy var persistentContainer: NSPersistentContainer = {

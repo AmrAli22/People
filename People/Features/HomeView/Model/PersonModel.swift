@@ -1,9 +1,7 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  PersonModel.swift
-//  People
-//
-//  Created by Amr Ali on 07/09/2023.
-//
+//   let personModel = try? JSONDecoder().decode(PersonModel.self, from: jsonData)
 
 import Foundation
 
@@ -40,6 +38,7 @@ struct Dob: Codable {
     var age: Int?
 }
 
+
 // MARK: - ID
 struct ID: Codable {
     var name: String?
@@ -50,7 +49,7 @@ struct ID: Codable {
 struct Location: Codable {
     var street: Street?
     var city, state, country: String?
-    var postcode: Int?
+    var postcode: Postcode?
     var coordinates: Coordinates?
     var timezone: Timezone?
 }
@@ -58,6 +57,34 @@ struct Location: Codable {
 // MARK: - Coordinates
 struct Coordinates: Codable {
     var latitude, longitude: String?
+}
+
+enum Postcode: Codable {
+    case integer(Int)
+    case string(String)
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let x = try? container.decode(Int.self) {
+            self = .integer(x)
+            return
+        }
+        if let x = try? container.decode(String.self) {
+            self = .string(x)
+            return
+        }
+        throw DecodingError.typeMismatch(Postcode.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for Postcode"))
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .integer(let x):
+            try container.encode(x)
+        case .string(let x):
+            try container.encode(x)
+        }
+    }
 }
 
 // MARK: - Street

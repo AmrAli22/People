@@ -15,6 +15,8 @@ class HomeVC: UIViewController {
     
     let spinner = UIActivityIndicatorView(style: .large)
     
+    let refreshControl = UIRefreshControl()
+    
     public class func buildVC() -> HomeVC {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let homeView = storyboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
@@ -26,6 +28,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         self.presenter?.GetPeople()        
     }
     
@@ -33,9 +36,15 @@ class HomeVC: UIViewController {
         
         tabelView.delegate = self
         tabelView.dataSource = self
+        tabelView.refreshControl = refreshControl
         
         let nibHomePersonCell = UINib(nibName: "PersonHomeCell", bundle: nil)
         tabelView.register(nibHomePersonCell, forCellReuseIdentifier: PersonHomeCell.identifier)
+    }
+    
+    @objc func refreshData() {
+        // Perform a new data fetch
+        self.presenter?.GetPeople()        
     }
     
 }

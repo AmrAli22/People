@@ -29,6 +29,7 @@ class LaunchScreenVC: UIViewController {
         }, completion: { [weak self] (finished: Bool) in
             if(finished){
                 //MARK: - HERE To Go Main OR Onboarding Screen
+                AppDelegate.instance?.goToHome()
             }
         })
         

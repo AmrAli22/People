@@ -43,7 +43,6 @@ class HomeVC: UIViewController {
     }
     
     @objc func refreshData() {
-        // Perform a new data fetch
         self.presenter?.GetPeople()        
     }
     

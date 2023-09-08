@@ -15,8 +15,10 @@ struct HomeInteractor {
     typealias PeopleComplation = (_ PeopleData: PersonModel?, _ error: ErrorResponse?) -> ()
     
     func getPeople(completion: @escaping PeopleComplation) {
+
+       var params =  ["results":25]
         
-        NetworkingManager.makeRequest(method: .get, url: APIUrlsConstants.APIMainURL, headers: nil, params: nil, encoding: URLEncoding.queryString) { data in
+        NetworkingManager.makeRequest(method: .get, url: APIUrlsConstants.APIMainURL, headers: nil, params: params, encoding: URLEncoding.queryString) { data in
             
             do {
         

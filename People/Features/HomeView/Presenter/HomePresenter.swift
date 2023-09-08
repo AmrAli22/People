@@ -97,7 +97,7 @@ class HomePresenter {
         let currentItemLocation    = peopleArr[indexPath].location
         let LocationCity           = currentItemLocation?.city ?? ""
         let LocationCountry        = currentItemLocation?.country ?? ""
-        let locationString         = "\(LocationCity)" + " " + "\(LocationCountry)"
+        let locationString         = "\(LocationCity)" + ", " + "\(LocationCountry)"
         cell.setLocation(Location: locationString)
         
         //MARK: - Configure Mail

@@ -26,9 +26,9 @@ class NetworkingManager {
             .responseJSON(completionHandler: {  response in
                 
                 print("URL:\(String(describing: response.request?.url))")
-                print("Headers:\(String(describing: response.request?.headers))")
-                print("Params:\(String(describing: params))")
-                print("response:\(response)")
+//                print("Headers:\(String(describing: response.request?.headers))")
+//                print("Params:\(String(describing: params))")
+//                print("response:\(response)")
 
                 if response.response?.statusCode == 200 {
                     successHandler(response.data)

@@ -29,7 +29,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         self.setupTableView()
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        self.presenter?.GetPeople()        
+        self.presenter?.GetPeople(isRefreshData: true)
     }
     
     func setupTableView(){
@@ -43,7 +43,7 @@ class HomeVC: UIViewController {
     }
     
     @objc func refreshData() {
-        self.presenter?.GetPeople()        
+        self.presenter?.GetPeople(isRefreshData: true)        
     }
     
 }

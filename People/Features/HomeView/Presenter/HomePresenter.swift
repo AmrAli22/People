@@ -13,7 +13,7 @@ protocol HomeView: AnyObject {
     func reloadTableView()
     func FailureAlert(with error: String)
     func SuccessAlert(with msg  : String)
-
+    
 }
 
 protocol HomePersonCellCellView: AnyObject {
@@ -23,7 +23,6 @@ protocol HomePersonCellCellView: AnyObject {
     func setEmail    (email     : String)
     func setImageUrl (Url       : String)
 }
-
 
 //MARK: - HomePresenter
 class HomePresenter {
@@ -36,23 +35,52 @@ class HomePresenter {
     
     //MARK: - PeopleArray
     var peopleArr = [Person]()
-   
+    
+    //MARK: - Pagination Vars
+    var currentPage = 0
+    var isLoadingData = false
+    var pageSize = 25 // Adjust this as needed
+    var shouldLoadMoreData = true
+    var currentSeed = ""
+    
     //MARK: - PresenterConstractours
     init(homeView: HomeView ) {
         self.homeView = homeView
     }
-
+    
     //MARK: - GetPeople
-    func GetPeople(){
+    func GetPeople(isRefreshData: Bool = false){
+        
+        guard !isLoadingData, shouldLoadMoreData else {
+            return
+        }
+        
+        isLoadingData = true
+        
         self.homeView?.showSpinner()
         
-        homeInteractor.getPeople() { [weak self] (peopleData, error) in
+        homeInteractor.getPeople(page: currentPage, seed: currentSeed ) { [weak self] (peopleData, error) in
             guard let self = self else { return }
             self.homeView?.hideSpinner()
-
+            self.isLoadingData = false
+            
             if let peopleData = peopleData?.results {
-                self.peopleArr = peopleData
-                self.homeView?.reloadTableView()
+                if peopleData.isEmpty {
+                    self.shouldLoadMoreData = false
+                } else {
+                    if isRefreshData {
+                        self.peopleArr = peopleData
+                        self.homeView?.reloadTableView()
+                    }else{
+                        self.peopleArr   += peopleData
+                        self.currentPage += 1
+                        self.homeView?.reloadTableView()
+                    }
+                }
+            }
+            
+            if let peopleDataSeed = peopleData?.info?.seed {
+                self.currentSeed = peopleDataSeed
             }
         }
     }
@@ -66,10 +94,9 @@ class HomePresenter {
         if let date = inputFormatter.date(from: dateString) {
             // Create a date formatter for the desired output format
             let outputFormatter = DateFormatter()
-            outputFormatter.dateFormat = "yyyy/MM/dd"
+            outputFormatter.dateFormat = "dd/MM/yyyy"
             // Convert the date to the desired format
             let formattedDate = outputFormatter.string(from: date)
-            print(formattedDate)
             return("\(formattedDate)")
         } else {
             print("Invalid date format")
@@ -110,5 +137,5 @@ class HomePresenter {
         cell.setImageUrl(Url: currentItemthumbnail )
     }
     
-  
+    
 }

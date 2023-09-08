@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65BDF5C22AAB748500679C7C /* PersonDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BDF5C12AAB748500679C7C /* PersonDetails.storyboard */; };
+		65BDF5C42AAB74A900679C7C /* PersonDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF5C32AAB74A900679C7C /* PersonDetailsVC.swift */; };
+		65BDF5C62AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF5C52AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift */; };
+		65BDF5C92AAB84B600679C7C /* PersonDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF5C82AAB84B600679C7C /* PersonDetailsPresenter.swift */; };
 		65D8DA362AAA60F40093EB2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA352AAA60F40093EB2B /* AppDelegate.swift */; };
 		65D8DA3A2AAA60F40093EB2B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA392AAA60F40093EB2B /* HomeVC.swift */; };
 		65D8DA3D2AAA60F40093EB2B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D8DA3B2AAA60F40093EB2B /* Home.storyboard */; };
@@ -29,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65BDF5C12AAB748500679C7C /* PersonDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonDetails.storyboard; sourceTree = "<group>"; };
+		65BDF5C32AAB74A900679C7C /* PersonDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsVC.swift; sourceTree = "<group>"; };
+		65BDF5C52AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonDetailsVC+PresenterProtcolos.swift"; sourceTree = "<group>"; };
+		65BDF5C82AAB84B600679C7C /* PersonDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsPresenter.swift; sourceTree = "<group>"; };
 		65D8DA322AAA60F40093EB2B /* People.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = People.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D8DA352AAA60F40093EB2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65D8DA392AAA60F40093EB2B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -63,6 +71,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65BDF5BF2AAB745500679C7C /* PersonDetails */ = {
+			isa = PBXGroup;
+			children = (
+				65BDF5C72AAB849A00679C7C /* Presenter */,
+				65BDF5C12AAB748500679C7C /* PersonDetails.storyboard */,
+				65BDF5C02AAB747600679C7C /* View */,
+			);
+			path = PersonDetails;
+			sourceTree = "<group>";
+		};
+		65BDF5C02AAB747600679C7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				65BDF5C32AAB74A900679C7C /* PersonDetailsVC.swift */,
+				65BDF5C52AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		65BDF5C72AAB849A00679C7C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				65BDF5C82AAB84B600679C7C /* PersonDetailsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		65D8DA292AAA60F40093EB2B = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +154,7 @@
 		65D8DA4F2AAA61E30093EB2B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				65BDF5BF2AAB745500679C7C /* PersonDetails */,
 				65D8DA512AAA61FB0093EB2B /* HomeView */,
 				65D8DA502AAA61EE0093EB2B /* LaunchScreen */,
 			);
@@ -276,6 +312,7 @@
 			files = (
 				65D8DA552AAA65E90093EB2B /* LaunchScreen.storyboard in Resources */,
 				65D8DA422AAA60F50093EB2B /* Assets.xcassets in Resources */,
+				65BDF5C22AAB748500679C7C /* PersonDetails.storyboard in Resources */,
 				65D8DA3D2AAA60F40093EB2B /* Home.storyboard in Resources */,
 				65D8DA732AAA82FC0093EB2B /* PersonHomeCell.xib in Resources */,
 			);
@@ -288,16 +325,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BDF5C62AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift in Sources */,
 				65D8DA5F2AAA6D810093EB2B /* NetworkManger.swift in Sources */,
 				65D8DA532AAA64BF0093EB2B /* LaunchScreen.swift in Sources */,
 				65D8DA662AAA6E870093EB2B /* APIsConstants.swift in Sources */,
 				65D8DA6A2AAA758B0093EB2B /* HomePresenter.swift in Sources */,
 				65D8DA402AAA60F40093EB2B /* People.xcdatamodeld in Sources */,
 				65D8DA642AAA6E6E0093EB2B /* DataResponse.swift in Sources */,
+				65BDF5C42AAB74A900679C7C /* PersonDetailsVC.swift in Sources */,
 				65D8DA722AAA82FC0093EB2B /* PersonHomeCell.swift in Sources */,
 				65D8DA3A2AAA60F40093EB2B /* HomeVC.swift in Sources */,
 				65D8DA682AAA6FD60093EB2B /* PersonModel.swift in Sources */,
 				65D8DA6E2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift in Sources */,
+				65BDF5C92AAB84B600679C7C /* PersonDetailsPresenter.swift in Sources */,
 				65D8DA5C2AAA6CC60093EB2B /* HomeInteractor.swift in Sources */,
 				65D8DA6C2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift in Sources */,
 				65D8DA362AAA60F40093EB2B /* AppDelegate.swift in Sources */,

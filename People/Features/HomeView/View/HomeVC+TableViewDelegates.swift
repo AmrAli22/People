@@ -22,6 +22,10 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
         return 100
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(PersonDetailsVC.buildVC(), animated: true)
+    }
+    
 }
 
 extension HomeVC: UIScrollViewDelegate {

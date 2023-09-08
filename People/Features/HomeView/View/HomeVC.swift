@@ -13,6 +13,7 @@ class HomeVC: UIViewController {
     
     var presenter : HomePresenter?
     
+    @IBOutlet weak var searchBar: UISearchBar!
     let spinner = UIActivityIndicatorView(style: .large)
     
     let refreshControl = UIRefreshControl()
@@ -28,7 +29,12 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
+        
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
+        searchBar.delegate = self
+        searchBar.placeholder = "Search"
+        
         self.presenter?.GetPeople(isRefreshData: true)
     }
     
@@ -48,3 +54,9 @@ class HomeVC: UIViewController {
     
 }
 
+extension HomeVC : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.presenter?.searchText = searchText
+        
+    }
+}

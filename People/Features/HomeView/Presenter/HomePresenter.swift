@@ -35,6 +35,7 @@ class HomePresenter {
     
     //MARK: - PeopleArray
     var peopleArr = [Person]()
+    var filterPeopleArr = [Person]()
     
     //MARK: - Pagination Vars
     var currentPage = 0
@@ -43,6 +44,13 @@ class HomePresenter {
     var shouldLoadMoreData = true
     var currentSeed = ""
     
+    //MARK: - searchText
+    var searchText = "" {
+        didSet{
+            searchBarChanged()
+        }
+    }
+    
     //MARK: - PresenterConstractours
     init(homeView: HomeView ) {
         self.homeView = homeView
@@ -50,6 +58,10 @@ class HomePresenter {
     
     //MARK: - GetPeople
     func GetPeople(isRefreshData: Bool = false){
+        
+        if isRefreshData {
+            currentPage = 0
+        }
         
         guard !isLoadingData, shouldLoadMoreData else {
             return
@@ -69,18 +81,15 @@ class HomePresenter {
                     self.shouldLoadMoreData = false
                 } else {
                     if isRefreshData {
-                        self.peopleArr = peopleData
+                        self.peopleArr        = peopleData
+                        self.filterPeopleArr  = peopleData
                         self.homeView?.reloadTableView()
                     }else{
-                        self.peopleArr   += peopleData
-                        self.currentPage += 1
-                        self.homeView?.reloadTableView()
+                        self.peopleArr       += peopleData
+                        self.currentPage     += 1
+                        self.searchBarChanged()
                     }
                 }
-            }
-            
-            if let peopleDataSeed = peopleData?.info?.seed {
-                self.currentSeed = peopleDataSeed
             }
         }
     }
@@ -108,7 +117,7 @@ class HomePresenter {
     func ConfigureHomePersonCell(cell: HomePersonCellCellView ,indexPath : Int){
         
         //MARK: - Configure Name
-        let currentItemName = peopleArr[indexPath].name
+        let currentItemName = filterPeopleArr[indexPath].name
         let NameTitle = (currentItemName?.title ?? "" )
         let FirstName = (currentItemName?.first ?? "" )
         let lastName  = (currentItemName?.last ?? "" )
@@ -116,26 +125,40 @@ class HomePresenter {
         cell.setName(name: name)
         
         //MARK: - Configure DOB
-        let currentItemDOB         = peopleArr[indexPath].dob?.date ?? "-"
+        let currentItemDOB         = filterPeopleArr[indexPath].dob?.date ?? "-"
         let StringOfCurrentItemDOB = ConfigureDataFormat(dateString: currentItemDOB)
         cell.setDOB(DOB: StringOfCurrentItemDOB)
         
         //MARK: - Configure Location
-        let currentItemLocation    = peopleArr[indexPath].location
+        let currentItemLocation    = filterPeopleArr[indexPath].location
         let LocationCity           = currentItemLocation?.city ?? ""
         let LocationCountry        = currentItemLocation?.country ?? ""
         let locationString         = "\(LocationCity)" + ", " + "\(LocationCountry)"
         cell.setLocation(Location: locationString)
         
         //MARK: - Configure Mail
-        let currentItemMail        = peopleArr[indexPath].email ?? ""
+        let currentItemMail        = filterPeopleArr[indexPath].email ?? ""
         cell.setEmail(email: currentItemMail)
         
         //MARK: - Configure UserImage
-        let currentItemthumbnail   = peopleArr[indexPath].picture?.medium ?? ""
+        let currentItemthumbnail   = filterPeopleArr[indexPath].picture?.medium ?? ""
         //MARK: - i have tried the thumbnail ,not the best apperance , so chosed the medium
         cell.setImageUrl(Url: currentItemthumbnail )
     }
     
+    //MARK: - SearchBar Delegates
     
+    func searchBarChanged(){
+        
+        if searchText == "" {
+            filterPeopleArr = peopleArr
+        }else{
+            filterPeopleArr = peopleArr.filter({ Person -> Bool in
+                return ( Person.name?.first?.lowercased().contains(searchText.lowercased()) ?? false ) ||
+                       ( Person.name?.last?.lowercased().contains(searchText.lowercased()) ?? false)
+               })
+        }
+        
+        self.homeView?.reloadTableView()
+    }
 }

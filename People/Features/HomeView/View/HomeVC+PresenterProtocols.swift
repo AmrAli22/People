@@ -20,10 +20,9 @@ extension HomeVC : HomeView {
     
     func reloadTableView() {
         DispatchQueue.main.async { [weak self] in
-             self?.refreshControl.endRefreshing()
-             self?.tabelView.reloadData()
+            self?.tabelView.reloadData()
+            self?.refreshControl.endRefreshing()
          }
-        
     }
     
     func FailureAlert(with error: String) {

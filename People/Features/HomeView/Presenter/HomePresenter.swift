@@ -78,7 +78,6 @@ class HomePresenter {
     }
     
     //MARK: - ConfigureHomePersonCell
-    
     func ConfigureHomePersonCell(cell: HomePersonCellCellView ,indexPath : Int){
         
         //MARK: - Configure Name
@@ -106,7 +105,8 @@ class HomePresenter {
         cell.setEmail(email: currentItemMail)
         
         //MARK: - Configure UserImage
-        let currentItemthumbnail   = peopleArr[indexPath].picture?.thumbnail ?? ""
+        let currentItemthumbnail   = peopleArr[indexPath].picture?.medium ?? ""
+        //MARK: - i have tried the thumbnail ,not the best apperance , so chosed the medium
         cell.setImageUrl(Url: currentItemthumbnail )
     }
     

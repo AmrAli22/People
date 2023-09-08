@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PersonHomeCell : UITableViewCell {
 
@@ -25,24 +26,24 @@ class PersonHomeCell : UITableViewCell {
 }
 
 extension PersonHomeCell : HomePersonCellCellView {
-    func setName(name: String) {
+    func setName(name: String)          {
         personNameLabel.text     = name
     }
     
-    func setDOB(DOB: String) {
+    func setDOB(DOB: String)            {
         personDOBLabel.text      = DOB
     }
     
-    func setLocation(Location: String) {
+    func setLocation(Location: String)  {
         personLocationLabel.text = Location
     }
     
-    func setEmail(email: String) {
+    func setEmail(email: String)        {
         personMailLabel.text     = email
     }
     
-    func setImageUrl(Url: String) {
-        
+    func setImageUrl(Url: String)       {
+        personImage.sd_setImage(with: URL(string: Url ), placeholderImage: UIImage(systemName: "person.circle.fill"))
     }
     
     

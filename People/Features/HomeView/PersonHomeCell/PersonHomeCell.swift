@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonHomeCell: UITableViewCell {
+class PersonHomeCell : UITableViewCell {
 
     public static let identifier = "PersonHomeCell"
     
@@ -21,5 +21,29 @@ class PersonHomeCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+}
+
+extension PersonHomeCell : HomePersonCellCellView {
+    func setName(name: String) {
+        personNameLabel.text     = name
+    }
+    
+    func setDOB(DOB: String) {
+        personDOBLabel.text      = DOB
+    }
+    
+    func setLocation(Location: String) {
+        personLocationLabel.text = Location
+    }
+    
+    func setEmail(email: String) {
+        personMailLabel.text     = email
+    }
+    
+    func setImageUrl(Url: String) {
+        
+    }
+    
     
 }

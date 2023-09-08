@@ -135,8 +135,8 @@
 		65D8DA512AAA61FB0093EB2B /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				65D8DA6F2AAA82D90093EB2B /* PersonHomeCell */,
 				65D8DA5A2AAA6AC10093EB2B /* StoryBoard */,
+				65D8DA6F2AAA82D90093EB2B /* PersonHomeCell */,
 				65D8DA562AAA6A980093EB2B /* View */,
 				65D8DA582AAA6AAA0093EB2B /* Presenter */,
 				65D8DA592AAA6AB20093EB2B /* Interactor */,

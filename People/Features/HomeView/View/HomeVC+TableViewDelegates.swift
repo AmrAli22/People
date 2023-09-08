@@ -14,6 +14,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let HomePersonCell = tableView.dequeueReusableCell(withIdentifier: PersonHomeCell.identifier , for: indexPath) as! PersonHomeCell
         HomePersonCell.selectionStyle = .none
+        presenter?.ConfigureHomePersonCell(cell: HomePersonCell, indexPath: indexPath.row)
         return HomePersonCell
     }
     

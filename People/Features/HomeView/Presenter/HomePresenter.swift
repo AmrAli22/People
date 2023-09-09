@@ -149,7 +149,6 @@ class HomePresenter {
     //MARK: - SearchBar Delegates
     
     func searchBarChanged(){
-        
         if searchText == "" {
             filterPeopleArr = peopleArr
         }else{
@@ -158,7 +157,12 @@ class HomePresenter {
                        ( Person.name?.last?.lowercased().contains(searchText.lowercased()) ?? false)
                })
         }
-        
         self.homeView?.reloadTableView()
     }
+    
+    //MARK: - getPersonByIndex
+    func getPersonByIndex(index: Int) -> Person{
+        return filterPeopleArr[index]
+    }
+    
 }

@@ -19,7 +19,7 @@ struct Info: Codable {
 }
 
 // MARK: - Result
-struct Person: Codable {
+struct Person: Codable , Equatable {
     var gender: String?
     var name: Name?
     var location: Location?
@@ -30,6 +30,11 @@ struct Person: Codable {
     var id: ID?
     var picture: Picture?
     var nat: String?
+    
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.id?.value == rhs.id?.value
+       }
+    
 }
 
 // MARK: - Dob

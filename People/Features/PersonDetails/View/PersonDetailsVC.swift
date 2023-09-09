@@ -66,7 +66,10 @@ class PersonDetailsVC: UIViewController {
                      self.FailureAlert(with: "Device cannot make phone calls")
                      return
                  }
-             }
+            }else{
+                self.FailureAlert(with: "Device cannot make phone calls")
+                return
+            }
         }else{
             self.FailureAlert(with: "Can not get the phone number")
             return
@@ -87,6 +90,9 @@ class PersonDetailsVC: UIViewController {
                   self.FailureAlert(with: "Device cannot open the email app")
                   return
               }
+          }else{
+              self.FailureAlert(with: "Can not get the person mail")
+              return
           }
         
         

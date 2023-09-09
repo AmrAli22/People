@@ -17,11 +17,12 @@ protocol HomeView: AnyObject {
 }
 
 protocol HomePersonCellCellView: AnyObject {
-    func setName     (name      : String)
-    func setDOB      (DOB       : String)
-    func setLocation (Location  : String)
-    func setEmail    (email     : String)
-    func setImageUrl (Url       : String)
+    func setName      (name      : String)
+    func setDOB       (DOB       : String)
+    func setLocation  (Location  : String)
+    func setEmail     (email     : String)
+    func setImageUrl  (Url       : String)
+    func setIsBookmark(isBookMark: Bool  )
 }
 
 //MARK: - HomePresenter
@@ -34,8 +35,9 @@ class HomePresenter {
     let homeInteractor = HomeInteractor()
     
     //MARK: - PeopleArray
-    var peopleArr = [Person]()
-    var filterPeopleArr = [Person]()
+    var peopleArr           = [Person]()
+    var filterPeopleArr     = [Person]()
+    var bookMarkedPeopleArr = [Person]()
     
     //MARK: - Pagination Vars
     var currentPage = 0
@@ -142,8 +144,18 @@ class HomePresenter {
         
         //MARK: - Configure UserImage
         let currentItemthumbnail   = filterPeopleArr[indexPath].picture?.medium ?? ""
+        
         //MARK: - i have tried the thumbnail ,not the best apperance , so chosed the medium
         cell.setImageUrl(Url: currentItemthumbnail )
+        
+        //MARK: - if cell is BookMarked
+        let pressedPerson = filterPeopleArr[indexPath]
+        
+        if bookMarkedPeopleArr.contains(where: { $0 == pressedPerson }) {
+            cell.setIsBookmark(isBookMark: true)
+        } else {
+            cell.setIsBookmark(isBookMark: false)
+        }
     }
     
     //MARK: - SearchBar Delegates
@@ -154,7 +166,7 @@ class HomePresenter {
         }else{
             filterPeopleArr = peopleArr.filter({ Person -> Bool in
                 return ( Person.name?.first?.lowercased().contains(searchText.lowercased()) ?? false ) ||
-                       ( Person.name?.last?.lowercased().contains(searchText.lowercased()) ?? false)
+                       ( Person.name?.last?.lowercased().contains(searchText.lowercased())  ?? false )
                })
         }
         self.homeView?.reloadTableView()
@@ -165,4 +177,21 @@ class HomePresenter {
         return filterPeopleArr[index]
     }
     
+    //MARK: - didPressBookMarkAction
+    func didPressBookMarkAction(index: Int){
+        let pressedPerson = filterPeopleArr[index]
+        if let index = self.bookMarkedPeopleArr.firstIndex(of: pressedPerson) {
+            // The object exists in the array.
+            // You can access the index if needed.
+            // Now, remove the object.
+            bookMarkedPeopleArr.remove(at: index)
+        } else {
+            // The object is not in the array.
+            // Handle the case where the object doesn't exist.
+            bookMarkedPeopleArr.append(pressedPerson)
+        }
+        
+        self.homeView?.reloadTableView()
+        
+    }
 }

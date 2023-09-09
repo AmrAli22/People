@@ -34,6 +34,7 @@ class HomeVC: UIViewController {
         
         searchBar.delegate = self
         searchBar.placeholder = "Search"
+        searchBar.returnKeyType = UIReturnKeyType.done
         
         self.presenter?.GetPeople(isRefreshData: true)
     }
@@ -57,6 +58,14 @@ class HomeVC: UIViewController {
 extension HomeVC : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.presenter?.searchText = searchText
-        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        // Return true to allow the keyboard to be dismissed.
+        return true
     }
 }

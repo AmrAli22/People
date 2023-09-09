@@ -31,58 +31,75 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="77z-P5-rEg">
-                        <rect key="frame" x="90" y="12" width="277" height="82"/>
+                        <rect key="frame" x="90" y="12" width="247" height="82"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amr Abdelhady Mahmoud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kop-EI-G2D">
-                                <rect key="frame" x="0.0" y="0.0" width="277" height="20.666666666666668"/>
+                                <rect key="frame" x="0.0" y="0.0" width="247" height="20.666666666666668"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theamr.ali@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFj-hg-QOe">
-                                <rect key="frame" x="0.0" y="20.666666666666664" width="277" height="20.333333333333336"/>
+                                <rect key="frame" x="0.0" y="20.666666666666664" width="247" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25/4/1996" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jr-Yg-Lyn">
-                                <rect key="frame" x="0.0" y="41" width="277" height="20.666666666666671"/>
+                                <rect key="frame" x="0.0" y="41" width="247" height="20.666666666666671"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cairo,Egypt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmd-Lx-B61">
-                                <rect key="frame" x="0.0" y="61.666666666666679" width="277" height="20.333333333333336"/>
+                                <rect key="frame" x="0.0" y="61.666666666666679" width="247" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGU-lg-TZY">
+                        <rect key="frame" x="342" y="12" width="25" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="IU2-cr-2of"/>
+                            <constraint firstAttribute="width" constant="25" id="aDN-8R-OUC"/>
+                        </constraints>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="bookmark.fill" catalog="system"/>
+                        <connections>
+                            <action selector="BookmarkBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YFI-Tt-UJg"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="77z-P5-rEg" firstAttribute="leading" secondItem="Koi-hH-GsZ" secondAttribute="trailing" constant="5" id="5es-zu-W9j"/>
+                    <constraint firstItem="CGU-lg-TZY" firstAttribute="top" secondItem="kop-EI-G2D" secondAttribute="top" id="7ob-cP-HkK"/>
                     <constraint firstItem="Koi-hH-GsZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="961-6u-BOh"/>
                     <constraint firstItem="Koi-hH-GsZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GXt-j9-sYj"/>
+                    <constraint firstAttribute="trailing" secondItem="CGU-lg-TZY" secondAttribute="trailing" constant="5" id="RKw-mx-yr6"/>
                     <constraint firstAttribute="bottom" secondItem="Koi-hH-GsZ" secondAttribute="bottom" constant="10" id="Wo1-Yx-r5i"/>
                     <constraint firstItem="77z-P5-rEg" firstAttribute="bottom" secondItem="Koi-hH-GsZ" secondAttribute="bottom" constant="-2" id="XYP-Op-YeV"/>
+                    <constraint firstItem="CGU-lg-TZY" firstAttribute="leading" secondItem="77z-P5-rEg" secondAttribute="trailing" constant="5" id="hwF-aW-Bhf"/>
                     <constraint firstItem="Koi-hH-GsZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uE3-cc-P1E"/>
                     <constraint firstItem="77z-P5-rEg" firstAttribute="top" secondItem="Koi-hH-GsZ" secondAttribute="top" constant="2" id="vLI-25-L90"/>
-                    <constraint firstAttribute="trailing" secondItem="77z-P5-rEg" secondAttribute="trailing" constant="5" id="wbP-Az-6Oa"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="BookmarkBtn" destination="CGU-lg-TZY" id="nKq-L6-846"/>
                 <outlet property="personDOBLabel" destination="2jr-Yg-Lyn" id="YVX-BD-ezL"/>
                 <outlet property="personImage" destination="Koi-hH-GsZ" id="Epc-ZK-AoQ"/>
                 <outlet property="personLocationLabel" destination="hmd-Lx-B61" id="EUX-XW-WRh"/>
                 <outlet property="personMailLabel" destination="yFj-hg-QOe" id="IB6-1k-gI7"/>
                 <outlet property="personNameLabel" destination="kop-EI-G2D" id="CYx-Ab-U39"/>
             </connections>
-            <point key="canvasLocation" x="214" y="-132"/>
+            <point key="canvasLocation" x="145" y="-161"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
     </resources>
 </document>

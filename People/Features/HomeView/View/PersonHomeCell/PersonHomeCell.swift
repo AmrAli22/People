@@ -17,15 +17,30 @@ class PersonHomeCell : UITableViewCell {
     @IBOutlet weak var personMailLabel: UILabel!
     @IBOutlet weak var personDOBLabel: UILabel!
     @IBOutlet weak var personLocationLabel: UILabel!
+    @IBOutlet weak var BookmarkBtn: UIButton!
+    
+    var didPressBookMarkAction     : (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
+    @IBAction func BookmarkBtnPressed(_ sender: Any) {
+        
+        if let didPressBookMarkAction = didPressBookMarkAction {
+            didPressBookMarkAction()
+        }
+        
+    }
+    
 }
 
 extension PersonHomeCell : HomePersonCellCellView {
+    func setIsBookmark(isBookMark: Bool) {
+        self.BookmarkBtn.tintColor = isBookMark ? .yellow : .gray
+    }
+    
     func setName(name: String)          {
         personNameLabel.text     = name
     }

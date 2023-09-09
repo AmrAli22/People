@@ -34,8 +34,18 @@ class HomeVC: UIViewController {
         
         searchBar.delegate = self
         searchBar.placeholder = "Search"
+        searchBar.returnKeyType = UIReturnKeyType.done
+        
+        let BookMarkedBtn = UIBarButtonItem(title: "BookMarked", style: .plain, target: self, action: #selector(BookMarkedPeopleTapped))
+        navigationItem.rightBarButtonItem = BookMarkedBtn
         
         self.presenter?.GetPeople(isRefreshData: true)
+    }
+    
+    
+    @objc func BookMarkedPeopleTapped() {
+        guard let pres = self.presenter else { return }
+        self.navigationController?.pushViewController(BookMarkedPeopleVC.buildVC(Pres: pres ) , animated: true)
     }
     
     func setupTableView(){
@@ -57,6 +67,14 @@ class HomeVC: UIViewController {
 extension HomeVC : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.presenter?.searchText = searchText
-        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        // Return true to allow the keyboard to be dismissed.
+        return true
     }
 }

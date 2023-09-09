@@ -11,11 +11,12 @@ protocol PersonDetailsView: AnyObject {
     func FailureAlert(with error: String)
     func SuccessAlert(with msg  : String)
     
-    func setName     (name      : String)
-    func setDOB      (DOB       : String)
-    func setLocation (Location  : String)
-    func setEmail    (email     : String)
-    func setImageUrl (Url       : String)
+    func setName      (name      : String)
+    func setDOB       (DOB       : String)
+    func setLocation  (Location  : String)
+    func setEmail     (email     : String)
+    func setImageUrl  (Url       : String)
+    func setIsBookmark(isBookMark: Bool  )
     
 }
 
@@ -27,11 +28,17 @@ class personDetailsPresenter {
         
     //MARK: - PeopleArray
     var currentPerson : Person?
+    var isBookMarked  = false {
+        didSet {
+            self.personDetailsView?.setIsBookmark(isBookMark: isBookMarked)
+        }
+    }
     
     //MARK: - PresenterConstractours
-    init(personDetailsView: PersonDetailsView , currentPerson : Person ) {
+    init(personDetailsView: PersonDetailsView , currentPerson : Person , isbookMarked : Bool) {
         self.personDetailsView = personDetailsView
         self.currentPerson     = currentPerson
+        self.isBookMarked      = isbookMarked
     }
 
     //MARK: - ConfigureHomePersonCell
@@ -64,6 +71,9 @@ class personDetailsPresenter {
         let currentItemthumbnail   = currentPerson?.picture?.large ?? ""
         //MARK: - i have tried the thumbnail ,not the best apperance , so chosed the medium
         view.setImageUrl(Url: currentItemthumbnail )
+        
+        //MARK: - Configure IsBookmark
+        view.setIsBookmark(isBookMark: self.isBookMarked)
     }
     
     //MARK: - ConfigureDataFormat

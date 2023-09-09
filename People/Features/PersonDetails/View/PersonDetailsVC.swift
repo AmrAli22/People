@@ -14,22 +14,33 @@ class PersonDetailsVC: UIViewController {
     @IBOutlet weak var personMailLabel: UILabel!
     @IBOutlet weak var personDOBLabel: UILabel!
     @IBOutlet weak var personLocationLabel: UILabel!
+    @IBOutlet weak var BookMarkBtn: UIButton!
     
     let spinner = UIActivityIndicatorView(style: .large)
     
     var presenter : personDetailsPresenter?
     
-    public class func buildVC(currentPerson : Person) -> PersonDetailsVC {
-        let storyboard = UIStoryboard(name: "PersonDetails", bundle: nil)
-        let personDetailsView = storyboard.instantiateViewController(withIdentifier: "PersonDetailsVC") as! PersonDetailsVC
-        let pres = personDetailsPresenter(personDetailsView: personDetailsView, currentPerson: currentPerson)
-            personDetailsView.presenter = pres
-        return personDetailsView
-    }
+    var didPressBookMarkAction     : ((Bool) -> Void)?
+    
+//    public class func buildVC(currentPerson : Person , isBookMarked : Bool) -> PersonDetailsVC {
+//        let storyboard = UIStoryboard(name: "PersonDetails", bundle: nil)
+//        let personDetailsView = storyboard.instantiateViewController(withIdentifier: "PersonDetailsVC") as! PersonDetailsVC
+//        let pres = personDetailsPresenter(personDetailsView: personDetailsView, currentPerson: currentPerson , isbookMarked: isBookMarked)
+//            personDetailsView.presenter = pres
+//        return personDetailsView
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let GuardedBookMarked = self.presenter?.isBookMarked else { return  }
+        if let didPressBookMarkAction = didPressBookMarkAction {
+            didPressBookMarkAction(GuardedBookMarked)
+        }
     }
     
     func setupViews(){
@@ -51,6 +62,10 @@ class PersonDetailsVC: UIViewController {
         personImage.clipsToBounds = true
     }
  
+    @IBAction func BookmarkBtnPressed(_ sender: Any) {
+        self.presenter?.isBookMarked.toggle()
+    }
+    
     @IBAction func callBtnPressed(_ sender: Any) {
         
         guard let phoneNumber = self.presenter?.getCurrentPersonPhoneNumber() else {
@@ -66,7 +81,10 @@ class PersonDetailsVC: UIViewController {
                      self.FailureAlert(with: "Device cannot make phone calls")
                      return
                  }
-             }
+            }else{
+                self.FailureAlert(with: "Device cannot make phone calls")
+                return
+            }
         }else{
             self.FailureAlert(with: "Can not get the phone number")
             return
@@ -87,6 +105,9 @@ class PersonDetailsVC: UIViewController {
                   self.FailureAlert(with: "Device cannot open the email app")
                   return
               }
+          }else{
+              self.FailureAlert(with: "Can not get the person mail")
+              return
           }
         
         

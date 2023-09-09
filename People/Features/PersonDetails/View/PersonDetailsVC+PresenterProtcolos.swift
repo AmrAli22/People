@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 
 extension PersonDetailsVC: PersonDetailsView {
+ 
 
     func FailureAlert(with error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
@@ -42,6 +43,9 @@ extension PersonDetailsVC: PersonDetailsView {
         personImage.sd_setImage(with: URL(string: Url ), placeholderImage: UIImage(systemName: "person.circle.fill"))
     }
     
+    func setIsBookmark(isBookMark: Bool) {
+        self.BookMarkBtn.tintColor = isBookMark ? .yellow : .gray
+    }
     
     
 }

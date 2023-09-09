@@ -17,7 +17,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
         presenter?.ConfigureHomePersonCell(cell: HomePersonCell, indexPath: indexPath.row)
             HomePersonCell.didPressBookMarkAction = { [weak self] in
                 guard let self = self else{ return }
-                self.presenter?.didPressBookMarkAction(index: indexPath.row)
+                self.presenter?.didPressBookMarkAction(index: indexPath.row, settedFlag: nil)
             }
         return HomePersonCell
     }
@@ -32,8 +32,21 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             self.FailureAlert(with: "error fetching user details")
             return
         }
-        let checkIsBookMarked = self.presenter?.checkIfIndexIsBookMarked(index: indexPath.row) ?? false 
-        self.navigationController?.pushViewController(PersonDetailsVC.buildVC(currentPerson: selectedPerson, isBookMarked: checkIsBookMarked) , animated: true)
+        let checkIsBookMarked = self.presenter?.checkIfIndexIsBookMarked(index: indexPath.row) ?? false
+        
+        let storyboard = UIStoryboard(name: "PersonDetails", bundle: nil)
+        let personDetailsView = storyboard.instantiateViewController(withIdentifier: "PersonDetailsVC") as! PersonDetailsVC
+        let pres = personDetailsPresenter(personDetailsView: personDetailsView, currentPerson: selectedPerson , isbookMarked: checkIsBookMarked)
+            personDetailsView.presenter = pres
+  
+        
+        personDetailsView.didPressBookMarkAction = { [weak self] bookMarked in
+            
+            self?.presenter?.didPressBookMarkAction(index: indexPath.row , settedFlag : bookMarked)
+            
+        }
+        
+        self.navigationController?.pushViewController(personDetailsView , animated: true)
     }
 }
 

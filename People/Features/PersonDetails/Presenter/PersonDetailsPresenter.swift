@@ -28,7 +28,11 @@ class personDetailsPresenter {
         
     //MARK: - PeopleArray
     var currentPerson : Person?
-    var isBookMarked  = false
+    var isBookMarked  = false {
+        didSet {
+            self.personDetailsView?.setIsBookmark(isBookMark: isBookMarked)
+        }
+    }
     
     //MARK: - PresenterConstractours
     init(personDetailsView: PersonDetailsView , currentPerson : Person , isbookMarked : Bool) {

@@ -49,7 +49,7 @@ extension BookMarkedPeopleVC : UITableViewDelegate , UITableViewDataSource {
         presenter?.ConfigureBookMarkedPersonCell(cell: HomePersonCell, indexPath: indexPath.row)
             HomePersonCell.didPressBookMarkAction = { [weak self] in
                 guard let self = self else{ return }
-                self.presenter?.didPressBookMarkAction(index: indexPath.row , isFromBookMarkedVC: true)
+                self.presenter?.didPressBookMarkAction(index: indexPath.row , isFromBookMarkedVC: true, settedFlag: nil)
                 self.tabelView.reloadData()
             }
         return HomePersonCell

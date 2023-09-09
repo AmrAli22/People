@@ -32,8 +32,8 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             self.FailureAlert(with: "error fetching user details")
             return
         }
-        
-        self.navigationController?.pushViewController(PersonDetailsVC.buildVC(currentPerson: selectedPerson) , animated: true)
+        let checkIsBookMarked = self.presenter?.checkIfIndexIsBookMarked(index: indexPath.row) ?? false 
+        self.navigationController?.pushViewController(PersonDetailsVC.buildVC(currentPerson: selectedPerson, isBookMarked: checkIsBookMarked) , animated: true)
     }
 }
 

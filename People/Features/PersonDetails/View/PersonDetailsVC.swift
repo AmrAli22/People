@@ -14,15 +14,16 @@ class PersonDetailsVC: UIViewController {
     @IBOutlet weak var personMailLabel: UILabel!
     @IBOutlet weak var personDOBLabel: UILabel!
     @IBOutlet weak var personLocationLabel: UILabel!
+    @IBOutlet weak var BookMarkBtn: UIButton!
     
     let spinner = UIActivityIndicatorView(style: .large)
     
     var presenter : personDetailsPresenter?
     
-    public class func buildVC(currentPerson : Person) -> PersonDetailsVC {
+    public class func buildVC(currentPerson : Person , isBookMarked : Bool) -> PersonDetailsVC {
         let storyboard = UIStoryboard(name: "PersonDetails", bundle: nil)
         let personDetailsView = storyboard.instantiateViewController(withIdentifier: "PersonDetailsVC") as! PersonDetailsVC
-        let pres = personDetailsPresenter(personDetailsView: personDetailsView, currentPerson: currentPerson)
+        let pres = personDetailsPresenter(personDetailsView: personDetailsView, currentPerson: currentPerson , isbookMarked: isBookMarked)
             personDetailsView.presenter = pres
         return personDetailsView
     }
@@ -51,6 +52,9 @@ class PersonDetailsVC: UIViewController {
         personImage.clipsToBounds = true
     }
  
+    @IBAction func BookmarkBtnPressed(_ sender: Any) {
+    }
+    
     @IBAction func callBtnPressed(_ sender: Any) {
         
         guard let phoneNumber = self.presenter?.getCurrentPersonPhoneNumber() else {

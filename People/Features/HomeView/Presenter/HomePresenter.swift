@@ -182,16 +182,24 @@ class HomePresenter {
         let pressedPerson = isFromBookMarkedVC ? bookMarkedPeopleArr[index] : filterPeopleArr[index]
         if let index = self.bookMarkedPeopleArr.firstIndex(of: pressedPerson) {
             // The object exists in the array.
-            // You can access the index if needed.
-            // Now, remove the object.
             bookMarkedPeopleArr.remove(at: index)
         } else {
             // The object is not in the array.
-            // Handle the case where the object doesn't exist.
             bookMarkedPeopleArr.append(pressedPerson)
         }
         self.homeView?.reloadTableView()
     }
+    
+    //MARK: - checkIfIndexIsBookMarked
+    func checkIfIndexIsBookMarked(index: Int) -> Bool {
+        let checkPerson = filterPeopleArr[index]
+        if bookMarkedPeopleArr.contains(where: { $0 == checkPerson }) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     
     //MARK: - ConfigureHomePersonCell
     func ConfigureBookMarkedPersonCell(cell: HomePersonCellCellView ,indexPath : Int){

@@ -9,13 +9,21 @@ import UIKit
 
 class PersonDetailsVC: UIViewController {
 
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var personImage: UIImageView!
+    @IBOutlet weak var personNameLabel: UILabel!
+    @IBOutlet weak var personMailLabel: UILabel!
+    @IBOutlet weak var personDOBLabel: UILabel!
+    @IBOutlet weak var personLocationLabel: UILabel!
     
-    public class func buildVC() -> PersonDetailsVC {
+    let spinner = UIActivityIndicatorView(style: .large)
+    
+    var presenter : personDetailsPresenter?
+    
+    public class func buildVC(currentPerson : Person) -> PersonDetailsVC {
         let storyboard = UIStoryboard(name: "PersonDetails", bundle: nil)
         let personDetailsView = storyboard.instantiateViewController(withIdentifier: "PersonDetailsVC") as! PersonDetailsVC
-//        let pres = HomePresenter(homeView: homeView)
-//        homeView.presenter = pres
+        let pres = personDetailsPresenter(personDetailsView: personDetailsView, currentPerson: currentPerson)
+            personDetailsView.presenter = pres
         return personDetailsView
     }
     
@@ -26,8 +34,8 @@ class PersonDetailsVC: UIViewController {
     
     func setupViews(){
         makeImageCircular()
-        setupUserData()
         setupNav()
+        self.presenter?.ConfigurePersonDetailsView(view: self)
     }
     
     func setupNav() {
@@ -36,35 +44,48 @@ class PersonDetailsVC: UIViewController {
     }
     
     func makeImageCircular(){
-        profileImageView.layer.borderWidth = 1.0
-        profileImageView.layer.masksToBounds = false
-        profileImageView.layer.borderColor = UIColor.white.cgColor
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
-        profileImageView.clipsToBounds = true
+        personImage.layer.borderWidth = 1.0
+        personImage.layer.masksToBounds = false
+        personImage.layer.borderColor = UIColor.white.cgColor
+        personImage.layer.cornerRadius = personImage.frame.size.width / 2
+        personImage.clipsToBounds = true
     }
  
     @IBAction func callBtnPressed(_ sender: Any) {
         
-        if let phoneURL = URL(string: "tel://\(phoneNumber)") {
-             if UIApplication.shared.canOpenURL(phoneURL) {
-                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
-             } else {
-                 // Handle the case where the device cannot make phone calls
-                 print("Device cannot make phone calls")
-             }
-         }
+        guard let phoneNumber = self.presenter?.getCurrentPersonPhoneNumber() else {
+            self.FailureAlert(with: "Can not get the phone number")
+            return
+        }
         
+        if (phoneNumber != ""){
+            if let phoneURL = URL(string: "tel://\(phoneNumber)") {
+                 if UIApplication.shared.canOpenURL(phoneURL) {
+                     UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+                 } else {
+                     self.FailureAlert(with: "Device cannot make phone calls")
+                     return
+                 }
+             }
+        }else{
+            self.FailureAlert(with: "Can not get the phone number")
+            return
+        }
     }
     @IBAction func emailBtnPressed(_ sender: Any) {
+                
+        guard let personEmail = self.presenter?.getCurrentPersonEmail() else {
+            self.FailureAlert(with: "Can not get the person mail")
+            return
+        }
         
-        let recipientEmail = "recipient@example.com" // Replace with the recipient's email address
-          
-          if let emailURL = URL(string: "mailto:\(recipientEmail)") {
+          if let emailURL = URL(string: "mailto:\(personEmail)") {
               if UIApplication.shared.canOpenURL(emailURL) {
                   UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
               } else {
                   // Handle the case where the device cannot open the email app
-                  print("Device cannot open the email app")
+                  self.FailureAlert(with: "Device cannot open the email app")
+                  return
               }
           }
         
@@ -72,8 +93,15 @@ class PersonDetailsVC: UIViewController {
     }
     @IBAction func pinLocationPressed(_ sender: Any) {
         
-        let latitude: Double = 37.7749 // Replace with the desired latitude
-         let longitude: Double = -122.4194 // Replace with the desired longitude
+        guard let latitude = self.presenter?.getCurrentPersonLatAndLong().0 else {
+            self.FailureAlert(with: "Can not get the Person latitude")
+            return
+        }
+        
+        guard let longitude = self.presenter?.getCurrentPersonLatAndLong().1 else {
+            self.FailureAlert(with: "Can not get the Person longitude")
+            return
+        }
          
          let alert = UIAlertController(title: "Open Location", message: "Choose a Maps App", preferredStyle: .actionSheet)
          

@@ -23,7 +23,12 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(PersonDetailsVC.buildVC(), animated: true)
+        guard let selectedPerson = self.presenter?.getPersonByIndex(index : indexPath.row) else{
+            self.FailureAlert(with: "error fetching user details")
+            return
+        }
+        
+        self.navigationController?.pushViewController(PersonDetailsVC.buildVC(currentPerson: selectedPerson) , animated: true)
     }
     
 }

@@ -18,8 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HiME" translatesAutoresizingMaskIntoConstraints="NO" id="yvw-Xf-UFO">
-                                <rect key="frame" x="78.666666666666671" y="78.999999999999986" width="235.66666666666663" height="235.66666666666663"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yvw-Xf-UFO">
+                                <rect key="frame" x="78.666666666666671" y="80" width="235.66666666666663" height="234.33333333333331"/>
+                                <color key="tintColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YXT-Bn-fMX">
                                 <rect key="frame" x="49.333333333333343" y="334.66666666666669" width="294.66666666666663" height="147"/>
@@ -113,7 +114,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="profileImageView" destination="yvw-Xf-UFO" id="MEa-W8-vro"/>
+                        <outlet property="personDOBLabel" destination="JfC-Hu-ZgY" id="xnz-5R-7n0"/>
+                        <outlet property="personImage" destination="yvw-Xf-UFO" id="uoT-qC-ZFy"/>
+                        <outlet property="personLocationLabel" destination="G4H-BK-X9N" id="BVI-bq-EjC"/>
+                        <outlet property="personMailLabel" destination="loi-DY-oUZ" id="JSb-64-byS"/>
+                        <outlet property="personNameLabel" destination="pZ9-yn-J7O" id="Na5-kn-KhG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -122,9 +127,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HiME" width="1330" height="1808"/>
         <image name="envelope.open.fill" catalog="system" width="128" height="120"/>
         <image name="mappin.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="phone.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

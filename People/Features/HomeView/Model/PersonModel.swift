@@ -32,7 +32,7 @@ struct Person: Codable , Equatable {
     var nat: String?
     
     static func == (lhs: Person, rhs: Person) -> Bool {
-        return lhs.id?.value == rhs.id?.value
+        return lhs.id?.value == rhs.id?.value && lhs.name?.first == rhs.name?.first && lhs.name?.last == rhs.name?.last && lhs.dob?.date == rhs.dob?.date
        }
     
 }

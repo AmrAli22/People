@@ -35,7 +35,6 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
         
         self.navigationController?.pushViewController(PersonDetailsVC.buildVC(currentPerson: selectedPerson) , animated: true)
     }
-    
 }
 
 extension HomeVC: UIScrollViewDelegate {

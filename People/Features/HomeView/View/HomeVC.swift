@@ -36,7 +36,16 @@ class HomeVC: UIViewController {
         searchBar.placeholder = "Search"
         searchBar.returnKeyType = UIReturnKeyType.done
         
+        let BookMarkedBtn = UIBarButtonItem(title: "BookMarked", style: .plain, target: self, action: #selector(BookMarkedPeopleTapped))
+        navigationItem.rightBarButtonItem = BookMarkedBtn
+        
         self.presenter?.GetPeople(isRefreshData: true)
+    }
+    
+    
+    @objc func BookMarkedPeopleTapped() {
+        guard let pres = self.presenter else { return }
+        self.navigationController?.pushViewController(BookMarkedPeopleVC.buildVC(Pres: pres ) , animated: true)
     }
     
     func setupTableView(){

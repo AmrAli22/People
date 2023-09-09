@@ -11,6 +11,8 @@
 		65BDF5C42AAB74A900679C7C /* PersonDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF5C32AAB74A900679C7C /* PersonDetailsVC.swift */; };
 		65BDF5C62AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF5C52AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift */; };
 		65BDF5C92AAB84B600679C7C /* PersonDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF5C82AAB84B600679C7C /* PersonDetailsPresenter.swift */; };
+		65BDF5CC2AAC124C00679C7C /* BookmarkedPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BDF5CB2AAC124C00679C7C /* BookmarkedPeople.storyboard */; };
+		65BDF5CE2AAC127A00679C7C /* BookMarkedPeopleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF5CD2AAC127A00679C7C /* BookMarkedPeopleVC.swift */; };
 		65D8DA362AAA60F40093EB2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA352AAA60F40093EB2B /* AppDelegate.swift */; };
 		65D8DA3A2AAA60F40093EB2B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8DA392AAA60F40093EB2B /* HomeVC.swift */; };
 		65D8DA3D2AAA60F40093EB2B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D8DA3B2AAA60F40093EB2B /* Home.storyboard */; };
@@ -37,6 +39,8 @@
 		65BDF5C32AAB74A900679C7C /* PersonDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsVC.swift; sourceTree = "<group>"; };
 		65BDF5C52AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonDetailsVC+PresenterProtcolos.swift"; sourceTree = "<group>"; };
 		65BDF5C82AAB84B600679C7C /* PersonDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsPresenter.swift; sourceTree = "<group>"; };
+		65BDF5CB2AAC124C00679C7C /* BookmarkedPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookmarkedPeople.storyboard; sourceTree = "<group>"; };
+		65BDF5CD2AAC127A00679C7C /* BookMarkedPeopleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkedPeopleVC.swift; sourceTree = "<group>"; };
 		65D8DA322AAA60F40093EB2B /* People.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = People.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D8DA352AAA60F40093EB2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65D8DA392AAA60F40093EB2B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -98,6 +102,31 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		65BDF5CA2AAC121900679C7C /* BookmarkedPeople */ = {
+			isa = PBXGroup;
+			children = (
+				65BDF5CF2AAC13F900679C7C /* StoryBoard */,
+				65BDF5D02AAC140400679C7C /* Views */,
+			);
+			path = BookmarkedPeople;
+			sourceTree = "<group>";
+		};
+		65BDF5CF2AAC13F900679C7C /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				65BDF5CB2AAC124C00679C7C /* BookmarkedPeople.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		65BDF5D02AAC140400679C7C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65BDF5CD2AAC127A00679C7C /* BookMarkedPeopleVC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		65D8DA292AAA60F40093EB2B = {
 			isa = PBXGroup;
 			children = (
@@ -154,9 +183,10 @@
 		65D8DA4F2AAA61E30093EB2B /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				65BDF5BF2AAB745500679C7C /* PersonDetails */,
-				65D8DA512AAA61FB0093EB2B /* HomeView */,
 				65D8DA502AAA61EE0093EB2B /* LaunchScreen */,
+				65D8DA512AAA61FB0093EB2B /* HomeView */,
+				65BDF5BF2AAB745500679C7C /* PersonDetails */,
+				65BDF5CA2AAC121900679C7C /* BookmarkedPeople */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -174,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				65D8DA5A2AAA6AC10093EB2B /* StoryBoard */,
-				65D8DA6F2AAA82D90093EB2B /* PersonHomeCell */,
 				65D8DA562AAA6A980093EB2B /* View */,
 				65D8DA582AAA6AAA0093EB2B /* Presenter */,
 				65D8DA592AAA6AB20093EB2B /* Interactor */,
@@ -189,6 +218,7 @@
 				65D8DA392AAA60F40093EB2B /* HomeVC.swift */,
 				65D8DA6B2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift */,
 				65D8DA6D2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift */,
+				65D8DA6F2AAA82D90093EB2B /* PersonHomeCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +342,7 @@
 			files = (
 				65D8DA552AAA65E90093EB2B /* LaunchScreen.storyboard in Resources */,
 				65D8DA422AAA60F50093EB2B /* Assets.xcassets in Resources */,
+				65BDF5CC2AAC124C00679C7C /* BookmarkedPeople.storyboard in Resources */,
 				65BDF5C22AAB748500679C7C /* PersonDetails.storyboard in Resources */,
 				65D8DA3D2AAA60F40093EB2B /* Home.storyboard in Resources */,
 				65D8DA732AAA82FC0093EB2B /* PersonHomeCell.xib in Resources */,
@@ -325,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BDF5CE2AAC127A00679C7C /* BookMarkedPeopleVC.swift in Sources */,
 				65BDF5C62AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift in Sources */,
 				65D8DA5F2AAA6D810093EB2B /* NetworkManger.swift in Sources */,
 				65D8DA532AAA64BF0093EB2B /* LaunchScreen.swift in Sources */,

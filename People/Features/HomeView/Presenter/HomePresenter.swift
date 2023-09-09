@@ -178,8 +178,8 @@ class HomePresenter {
     }
     
     //MARK: - didPressBookMarkAction
-    func didPressBookMarkAction(index: Int){
-        let pressedPerson = filterPeopleArr[index]
+    func didPressBookMarkAction(index: Int , isFromBookMarkedVC : Bool = false){
+        let pressedPerson = isFromBookMarkedVC ? bookMarkedPeopleArr[index] : filterPeopleArr[index]
         if let index = self.bookMarkedPeopleArr.firstIndex(of: pressedPerson) {
             // The object exists in the array.
             // You can access the index if needed.
@@ -190,8 +190,51 @@ class HomePresenter {
             // Handle the case where the object doesn't exist.
             bookMarkedPeopleArr.append(pressedPerson)
         }
-        
         self.homeView?.reloadTableView()
-        
     }
+    
+    //MARK: - ConfigureHomePersonCell
+    func ConfigureBookMarkedPersonCell(cell: HomePersonCellCellView ,indexPath : Int){
+        
+        //MARK: - Configure Name
+        let currentItemName = bookMarkedPeopleArr[indexPath].name
+        let NameTitle = (currentItemName?.title ?? "" )
+        let FirstName = (currentItemName?.first ?? "" )
+        let lastName  = (currentItemName?.last ?? "" )
+        let name = NameTitle + " " + FirstName + " " + lastName
+        cell.setName(name: name)
+        
+        //MARK: - Configure DOB
+        let currentItemDOB         = bookMarkedPeopleArr[indexPath].dob?.date ?? "-"
+        let StringOfCurrentItemDOB = ConfigureDataFormat(dateString: currentItemDOB)
+        cell.setDOB(DOB: StringOfCurrentItemDOB)
+        
+        //MARK: - Configure Location
+        let currentItemLocation    = bookMarkedPeopleArr[indexPath].location
+        let LocationCity           = currentItemLocation?.city ?? ""
+        let LocationCountry        = currentItemLocation?.country ?? ""
+        let locationString         = "\(LocationCity)" + ", " + "\(LocationCountry)"
+        cell.setLocation(Location: locationString)
+        
+        //MARK: - Configure Mail
+        let currentItemMail        = bookMarkedPeopleArr[indexPath].email ?? ""
+        cell.setEmail(email: currentItemMail)
+        
+        //MARK: - Configure UserImage
+        let currentItemthumbnail   = bookMarkedPeopleArr[indexPath].picture?.medium ?? ""
+        
+        //MARK: - i have tried the thumbnail ,not the best apperance , so chosed the medium
+        cell.setImageUrl(Url: currentItemthumbnail )
+        
+        //MARK: - if cell is BookMarked
+        let pressedPerson = bookMarkedPeopleArr[indexPath]
+        
+        if bookMarkedPeopleArr.contains(where: { $0 == pressedPerson }) {
+            cell.setIsBookmark(isBookMark: true)
+        } else {
+            cell.setIsBookmark(isBookMark: false)
+        }
+    }
+    
+    
 }

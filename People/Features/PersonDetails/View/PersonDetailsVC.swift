@@ -21,15 +21,7 @@ class PersonDetailsVC: UIViewController {
     var presenter : personDetailsPresenter?
     
     var didPressBookMarkAction     : ((Bool) -> Void)?
-    
-//    public class func buildVC(currentPerson : Person , isBookMarked : Bool) -> PersonDetailsVC {
-//        let storyboard = UIStoryboard(name: "PersonDetails", bundle: nil)
-//        let personDetailsView = storyboard.instantiateViewController(withIdentifier: "PersonDetailsVC") as! PersonDetailsVC
-//        let pres = personDetailsPresenter(personDetailsView: personDetailsView, currentPerson: currentPerson , isbookMarked: isBookMarked)
-//            personDetailsView.presenter = pres
-//        return personDetailsView
-//    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -37,10 +29,7 @@ class PersonDetailsVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        guard let GuardedBookMarked = self.presenter?.isBookMarked else { return  }
-        if let didPressBookMarkAction = didPressBookMarkAction {
-            didPressBookMarkAction(GuardedBookMarked)
-        }
+    
     }
     
     func setupViews(){
@@ -64,6 +53,10 @@ class PersonDetailsVC: UIViewController {
  
     @IBAction func BookmarkBtnPressed(_ sender: Any) {
         self.presenter?.isBookMarked.toggle()
+        guard let GuardedBookMarked = self.presenter?.isBookMarked else { return  }
+        if let didPressBookMarkAction = didPressBookMarkAction {
+            didPressBookMarkAction(GuardedBookMarked)
+        }
     }
     
     @IBAction func callBtnPressed(_ sender: Any) {

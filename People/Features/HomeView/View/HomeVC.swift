@@ -21,6 +21,7 @@ class HomeVC: UIViewController {
             tabelView.register(nibHomePersonCell, forCellReuseIdentifier: PersonHomeCell.identifier)
         }
     }
+    
     @IBOutlet weak var NoDataView: UIView!
     @IBOutlet weak var showBookmarkedBtn: UIButton!
     @IBOutlet weak var searchBar: UISearchBar! {

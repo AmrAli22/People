@@ -27,13 +27,10 @@ class PersonHomeCell : UITableViewCell {
     }
     
     @IBAction func BookmarkBtnPressed(_ sender: Any) {
-        
         if let didPressBookMarkAction = didPressBookMarkAction {
             didPressBookMarkAction()
         }
-        
     }
-    
 }
 
 extension PersonHomeCell : HomePersonCellCellView {

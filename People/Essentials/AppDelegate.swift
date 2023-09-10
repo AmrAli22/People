@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func startApplication() {
         AppDelegate.instance = self
-        // IQKeyboardManager.shared().isEnabled = true
         if #available(iOS 13.0, *) {
             // UIApplication.shared.statusBarStyle = .darkContent
         } else {

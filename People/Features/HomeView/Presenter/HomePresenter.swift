@@ -14,6 +14,7 @@ protocol HomeView: AnyObject {
     func reloadTableView()
     func FailureAlert(with error: String)
     func SuccessAlert(with msg  : String)
+    func updateNoDataView()
     
 }
 
@@ -68,6 +69,11 @@ class HomePresenter {
         return self.filterPeopleArr.count
     }
     
+    //MARK: - GetBookMarkedPeopleCount
+    func getBookMarkedPeopleCount() -> Int{
+        return self.bookMarkedPeopleArr.count
+    }
+    
     //MARK: - GetPeopleFromUserDefults
     func getPeopleFromUserDefaults(){
         self.bookMarkedPeopleArr = UserDefaultsHelper.getPeople() ?? [Person]()
@@ -93,6 +99,13 @@ class HomePresenter {
             self.homeView?.hideSpinner()
             self.isLoadingData = false
             
+            if let error = error {
+                self.homeView?.FailureAlert(with: "\(error.message ?? "")")
+                self.homeView?.updateNoDataView()
+                return
+                
+            }
+            
             if let peopleData = peopleData?.results {
                 if peopleData.isEmpty {
                     self.shouldLoadMoreData = false
@@ -101,6 +114,7 @@ class HomePresenter {
                         self.peopleArr        = peopleData
                         self.filterPeopleArr  = peopleData
                         self.homeView?.reloadTableView()
+                        self.homeView?.updateNoDataView()
                     }else{
                         self.peopleArr       += peopleData
                         self.currentPage     += 1
@@ -185,6 +199,7 @@ class HomePresenter {
                })
         }
         self.homeView?.reloadTableView()
+        self.homeView?.updateNoDataView()
     }
     
     //MARK: - getPersonByIndex
@@ -223,6 +238,7 @@ class HomePresenter {
             bookMarkedPeopleArr.append(pressedPerson)
         }
         self.homeView?.reloadTableView()
+       
     }
     
     //MARK: - checkIfIndexIsBookMarked

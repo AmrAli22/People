@@ -39,27 +39,33 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
         let pres = personDetailsPresenter(personDetailsView: personDetailsView, currentPerson: selectedPerson , isbookMarked: checkIsBookMarked)
             personDetailsView.presenter = pres
   
-        
         personDetailsView.didPressBookMarkAction = { [weak self] bookMarked in
-            
             self?.presenter?.didPressBookMarkAction(index: indexPath.row , settedFlag : bookMarked)
-            
         }
-        
         self.navigationController?.pushViewController(personDetailsView , animated: true)
     }
-}
-
-extension HomeVC: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentOffsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let screenHeight = scrollView.frame.size.height
-        
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastCellToShow = (self.presenter?.getPeopleCount() ?? 0) - 2
         let islod = self.presenter?.isLoadingData ?? false
-        
-        if contentOffsetY + screenHeight >= contentHeight - 100 && !islod {
+
+        if (indexPath.row == lastCellToShow) && !islod {
             self.presenter?.GetPeople()
         }
     }
 }
+
+//extension HomeVC: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let contentOffsetY = scrollView.contentOffset.y
+//        let contentHeight = scrollView.contentSize.height
+//        let screenHeight = scrollView.frame.size.height
+//        
+//        let islod = self.presenter?.isLoadingData ?? false
+//        
+//        if contentOffsetY + screenHeight >= contentHeight - 100 && !islod {
+//            self.presenter?.GetPeople()
+//        }
+//    }
+//}

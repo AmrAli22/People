@@ -26,7 +26,7 @@ class LaunchScreenVC: UIViewController {
         UIView.animate(withDuration: 4.00, animations: { [weak self] in
             self?.logoImage.alpha = 1.0
             self?.logoImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        }, completion: { [weak self] (finished: Bool) in
+        }, completion: {(finished: Bool) in
             if(finished){
                 //MARK: - HERE To Go Main OR Onboarding Screen
                 AppDelegate.instance?.goToHome()

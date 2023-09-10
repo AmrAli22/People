@@ -15,6 +15,16 @@ class NetworkingManager {
                             successHandler: @escaping (_ response: Data?)->(),
                             errorHandler: @escaping (_ error:ErrorResponse?)->()) {
         
+        
+        let reachability = NetworkReachabilityManager(host: url)
+         
+         if reachability?.isReachable == false {
+             // Device is not connected to the internet
+             let error = ErrorResponse(message: "No Internet Connection")
+             errorHandler(error)
+             return
+         }
+        
         var recievedHeaders = headers
         if recievedHeaders == nil {
             recievedHeaders = HTTPHeaders()
@@ -24,11 +34,6 @@ class NetworkingManager {
                 
         AF.request(url , method: method,parameters: params ?? [:], encoding: encoding, headers: recievedHeaders)
             .responseJSON(completionHandler: {  response in
-                
-                print("URL:\(String(describing: response.request?.url))")
-//                print("Headers:\(String(describing: response.request?.headers))")
-//                print("Params:\(String(describing: params))")
-//                print("response:\(response)")
 
                 if response.response?.statusCode == 200 {
                     successHandler(response.data)

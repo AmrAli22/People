@@ -23,6 +23,9 @@ extension HomeVC : HomeView {
             self?.tabelView.reloadData()
             self?.refreshControl.endRefreshing()
          }
+    }
+    
+    func updateNoDataView() {
         self.NoDataView.isHidden =  (presenter?.getPeopleCount() != 0)
         self.tabelView.isHidden  =  (presenter?.getPeopleCount() == 0)
     }

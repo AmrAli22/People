@@ -24,6 +24,7 @@ class BookMarkedPeopleVC: UIViewController {
         super.viewDidLoad()
 
         setupTableView()
+        self.presenter?.getPeopleFromUserDefaults()
     }
 
     

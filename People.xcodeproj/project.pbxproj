@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		653337D12AAD5DB700F9B513 /* userDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653337D02AAD5DB700F9B513 /* userDefaultsHelper.swift */; };
 		65BDF5C22AAB748500679C7C /* PersonDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BDF5C12AAB748500679C7C /* PersonDetails.storyboard */; };
 		65BDF5C42AAB74A900679C7C /* PersonDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF5C32AAB74A900679C7C /* PersonDetailsVC.swift */; };
 		65BDF5C62AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF5C52AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		653337D02AAD5DB700F9B513 /* userDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDefaultsHelper.swift; sourceTree = "<group>"; };
 		65BDF5C12AAB748500679C7C /* PersonDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonDetails.storyboard; sourceTree = "<group>"; };
 		65BDF5C32AAB74A900679C7C /* PersonDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsVC.swift; sourceTree = "<group>"; };
 		65BDF5C52AAB849100679C7C /* PersonDetailsVC+PresenterProtcolos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonDetailsVC+PresenterProtcolos.swift"; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		653337CF2AAD5DA400F9B513 /* userDefaultsHelper */ = {
+			isa = PBXGroup;
+			children = (
+				653337D02AAD5DB700F9B513 /* userDefaultsHelper.swift */,
+			);
+			path = userDefaultsHelper;
+			sourceTree = "<group>";
+		};
 		65BDF5BF2AAB745500679C7C /* PersonDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 		65D8DA342AAA60F40093EB2B /* People */ = {
 			isa = PBXGroup;
 			children = (
+				653337CF2AAD5DA400F9B513 /* userDefaultsHelper */,
 				65D8DA5D2AAA6D6F0093EB2B /* NetworkLayer */,
 				65D8DA4F2AAA61E30093EB2B /* Features */,
 				65D8DA4E2AAA61D70093EB2B /* CoreDataModel */,
@@ -370,6 +381,7 @@
 				65D8DA682AAA6FD60093EB2B /* PersonModel.swift in Sources */,
 				65D8DA6E2AAA7C0E0093EB2B /* HomeVC+PresenterProtocols.swift in Sources */,
 				65BDF5C92AAB84B600679C7C /* PersonDetailsPresenter.swift in Sources */,
+				653337D12AAD5DB700F9B513 /* userDefaultsHelper.swift in Sources */,
 				65D8DA5C2AAA6CC60093EB2B /* HomeInteractor.swift in Sources */,
 				65D8DA6C2AAA7AAB0093EB2B /* HomeVC+TableViewDelegates.swift in Sources */,
 				65D8DA362AAA60F40093EB2B /* AppDelegate.swift in Sources */,

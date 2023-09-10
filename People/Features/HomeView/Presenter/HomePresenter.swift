@@ -38,7 +38,11 @@ class HomePresenter {
     //MARK: - PeopleArray
     var peopleArr           = [Person]()
     var filterPeopleArr     = [Person]()
-    var bookMarkedPeopleArr = [Person]()
+    var bookMarkedPeopleArr = [Person]() {
+        didSet{
+            UserDefaultsHelper.savePeople(bookMarkedPeopleArr)
+        }
+    }
     
     //MARK: - Pagination Vars
     var currentPage = 0
@@ -62,6 +66,11 @@ class HomePresenter {
     //MARK: - GetPeopleCount
     func getPeopleCount() -> Int{
         return self.filterPeopleArr.count
+    }
+    
+    //MARK: - GetPeopleFromUserDefults
+    func getPeopleFromUserDefaults(){
+        self.bookMarkedPeopleArr = UserDefaultsHelper.getPeople() ?? [Person]()
     }
     
     //MARK: - GetPeople

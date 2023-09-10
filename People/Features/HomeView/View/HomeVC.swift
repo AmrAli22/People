@@ -9,14 +9,33 @@ import UIKit
 
 class HomeVC: UIViewController {
 
-    @IBOutlet weak var tabelView: UITableView!
+    @IBOutlet weak var tabelView: UITableView! {
+        didSet {
+            tabelView.delegate = self
+            tabelView.dataSource = self
+            tabelView.refreshControl = refreshControl
+            
+            refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+            
+            let nibHomePersonCell = UINib(nibName: "PersonHomeCell", bundle: nil)
+            tabelView.register(nibHomePersonCell, forCellReuseIdentifier: PersonHomeCell.identifier)
+        }
+    }
+    @IBOutlet weak var NoDataView: UIView!
+    @IBOutlet weak var showBookmarkedBtn: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+            searchBar.placeholder = "Search"
+            searchBar.returnKeyType = UIReturnKeyType.done
+        }
+    }
     
-    var presenter : HomePresenter?
-    
-    @IBOutlet weak var searchBar: UISearchBar!
     let spinner = UIActivityIndicatorView(style: .large)
     
     let refreshControl = UIRefreshControl()
+    
+    var presenter : HomePresenter?
     
     public class func buildVC() -> HomeVC {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
@@ -26,44 +45,43 @@ class HomeVC: UIViewController {
         return homeView
     }
     
+    //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupTableView()
         
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        
-        searchBar.delegate = self
-        searchBar.placeholder = "Search"
-        searchBar.returnKeyType = UIReturnKeyType.done
-        
-        let BookMarkedBtn = UIBarButtonItem(title: "BookMarked", style: .plain, target: self, action: #selector(BookMarkedPeopleTapped))
+        let BookMarkedBtn = UIBarButtonItem(title: "Bookmarked", style: .plain, target: self, action: #selector(BookMarkedPeopleTapped))
         navigationItem.rightBarButtonItem = BookMarkedBtn
         
-        self.presenter?.GetPeople(isRefreshData: true)
+        self.NoDataView.clipsToBounds      = true
+        self.NoDataView.layer.cornerRadius = 10
+        self.NoDataView.layer.borderWidth  = 0.5
+        self.NoDataView.layer.borderColor  = UIColor.gray.cgColor
+        
+        self.showBookmarkedBtn.clipsToBounds      = true
+        self.showBookmarkedBtn.layer.cornerRadius = 10
+
+        InitPeople()
     }
-    
     
     @objc func BookMarkedPeopleTapped() {
         guard let pres = self.presenter else { return }
-        self.navigationController?.pushViewController(BookMarkedPeopleVC.buildVC(Pres: pres ) , animated: true)
+        self.navigationController?.pushViewController(BookMarkedPeopleVC.buildVC(Pres: pres) , animated: true)
     }
-    
-    func setupTableView(){
-        
-        tabelView.delegate = self
-        tabelView.dataSource = self
-        tabelView.refreshControl = refreshControl
-        
-        let nibHomePersonCell = UINib(nibName: "PersonHomeCell", bundle: nil)
-        tabelView.register(nibHomePersonCell, forCellReuseIdentifier: PersonHomeCell.identifier)
-    }
-    
+
     @objc func refreshData() {
-        self.presenter?.GetPeople(isRefreshData: true)        
+        InitPeople()
     }
     
+    func InitPeople() {
+        self.presenter?.GetPeople(isRefreshData: true)
+    }
+    
+    @IBAction func showBookMarkedPeoplePressed(_ sender: Any) {
+        BookMarkedPeopleTapped()
+    }
 }
 
+//MARK: - UISearchBarDelegates
 extension HomeVC : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.presenter?.searchText = searchText
@@ -74,7 +92,6 @@ extension HomeVC : UISearchBarDelegate {
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        // Return true to allow the keyboard to be dismissed.
         return true
     }
 }

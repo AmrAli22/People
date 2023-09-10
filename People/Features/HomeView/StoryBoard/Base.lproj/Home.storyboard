@@ -17,41 +17,102 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="idg-6c-ZPv">
-                                <rect key="frame" x="10" y="59" width="373" height="749"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBz-AK-QQm">
+                                <rect key="frame" x="78.666666666666671" y="320.66666666666669" width="235.66666666666663" height="235.66666666666669"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareplay.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="r8f-iW-7W1">
+                                        <rect key="frame" x="-2.3333333333333428" y="11.999999999999993" width="240.33333333333334" height="126.66666666666666"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry , No Data Exsist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RD-nr-5ri">
+                                        <rect key="frame" x="5" y="138" width="225.66666666666666" height="24.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSe-it-b3R">
+                                        <rect key="frame" x="20" y="182.66666666666663" width="195.66666666666666" height="40"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="gqx-x4-lSr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <state key="normal" title="Show Bookmarked People" image="bookmark.fill" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showBookMarkedPeoplePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3s6-43-0NV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="wVl-v0-cnt">
-                                    <rect key="frame" x="0.0" y="0.0" width="373" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="BYZ-38-t0r" id="z0o-ah-s0l"/>
-                                    </connections>
-                                </searchBar>
+                                <constraints>
+                                    <constraint firstItem="5RD-nr-5ri" firstAttribute="leading" secondItem="CBz-AK-QQm" secondAttribute="leading" constant="5" id="2gc-mf-a3x"/>
+                                    <constraint firstItem="5RD-nr-5ri" firstAttribute="top" secondItem="r8f-iW-7W1" secondAttribute="bottom" id="9Pe-oe-hR4"/>
+                                    <constraint firstItem="FSe-it-b3R" firstAttribute="top" secondItem="5RD-nr-5ri" secondAttribute="bottom" constant="20" id="FAe-Rk-Wqa"/>
+                                    <constraint firstItem="r8f-iW-7W1" firstAttribute="height" secondItem="CBz-AK-QQm" secondAttribute="height" multiplier="0.54314" id="FeK-9s-ITB"/>
+                                    <constraint firstItem="r8f-iW-7W1" firstAttribute="top" secondItem="CBz-AK-QQm" secondAttribute="top" constant="10" id="GBA-Ui-s8J"/>
+                                    <constraint firstAttribute="trailing" secondItem="5RD-nr-5ri" secondAttribute="trailing" constant="5" id="KeS-2d-zbV"/>
+                                    <constraint firstItem="r8f-iW-7W1" firstAttribute="centerX" secondItem="CBz-AK-QQm" secondAttribute="centerX" id="LNS-XG-V7o"/>
+                                    <constraint firstAttribute="trailing" secondItem="FSe-it-b3R" secondAttribute="trailing" constant="20" id="YRf-Lk-59K"/>
+                                    <constraint firstItem="FSe-it-b3R" firstAttribute="centerX" secondItem="CBz-AK-QQm" secondAttribute="centerX" id="lSu-yz-vDH"/>
+                                    <constraint firstItem="r8f-iW-7W1" firstAttribute="width" secondItem="CBz-AK-QQm" secondAttribute="width" multiplier="1.01839" id="s6c-QB-MJs"/>
+                                    <constraint firstItem="FSe-it-b3R" firstAttribute="leading" secondItem="CBz-AK-QQm" secondAttribute="leading" constant="20" id="vKU-Vp-VeP"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="idg-6c-ZPv">
+                                <rect key="frame" x="10" y="115" width="373" height="693"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="TLc-pb-2AO">
+                                <rect key="frame" x="10" y="59" width="373" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="SvW-kW-DBf"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CBz-AK-QQm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="4SJ-bN-10E"/>
                             <constraint firstItem="idg-6c-ZPv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="5xX-Pn-TsQ"/>
+                            <constraint firstItem="TLc-pb-2AO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="ByH-ZA-koc"/>
+                            <constraint firstItem="CBz-AK-QQm" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="Hvo-Hg-Qog"/>
+                            <constraint firstItem="CBz-AK-QQm" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="J7R-Xq-RWe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="idg-6c-ZPv" secondAttribute="trailing" constant="10" id="Qbh-SZ-bYX"/>
-                            <constraint firstItem="idg-6c-ZPv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kUX-94-QpL"/>
+                            <constraint firstItem="CBz-AK-QQm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XKo-Kq-lnj"/>
+                            <constraint firstItem="TLc-pb-2AO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="oAP-Yf-D9U"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="idg-6c-ZPv" secondAttribute="bottom" constant="10" id="ruc-mh-pwl"/>
+                            <constraint firstItem="TLc-pb-2AO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="u82-gr-ivy"/>
+                            <constraint firstItem="idg-6c-ZPv" firstAttribute="top" secondItem="TLc-pb-2AO" secondAttribute="bottom" id="woP-If-QN4"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="wVl-v0-cnt" id="Qnf-oM-awm"/>
+                        <outlet property="NoDataView" destination="CBz-AK-QQm" id="EuW-cM-DWg"/>
+                        <outlet property="searchBar" destination="TLc-pb-2AO" id="utE-Z1-eU4"/>
+                        <outlet property="showBookmarkedBtn" destination="FSe-it-b3R" id="0eJ-AS-svF"/>
                         <outlet property="tabelView" destination="idg-6c-ZPv" id="69Z-Cw-adN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-105" y="-153"/>
+            <point key="canvasLocation" x="-106.10687022900763" y="-153.52112676056339"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
+        <image name="shareplay.slash" catalog="system" width="128" height="87"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

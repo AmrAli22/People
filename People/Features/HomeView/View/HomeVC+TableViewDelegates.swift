@@ -55,17 +55,3 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
         }
     }
 }
-
-//extension HomeVC: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let contentOffsetY = scrollView.contentOffset.y
-//        let contentHeight = scrollView.contentSize.height
-//        let screenHeight = scrollView.frame.size.height
-//        
-//        let islod = self.presenter?.isLoadingData ?? false
-//        
-//        if contentOffsetY + screenHeight >= contentHeight - 100 && !islod {
-//            self.presenter?.GetPeople()
-//        }
-//    }
-//}

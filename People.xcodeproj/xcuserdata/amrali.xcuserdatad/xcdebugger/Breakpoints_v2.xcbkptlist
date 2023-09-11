@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5E6F6C15-A73C-47A7-B875-328781F48357"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96731C5C-E521-4D7D-9516-F339FABF6B53"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "People/Features/HomeView/View/HomeVC+PresenterProtocols.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55">
+            <Locations>
+               <Location
+                  uuid = "96731C5C-E521-4D7D-9516-F339FABF6B53 - 3622621241fe49a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "People.HomeVC.FailureAlert(with: Swift.String) -&gt; ()"
+                  moduleName = "People"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amrali/Desktop/People/People/Features/HomeView/View/HomeVC+PresenterProtocols.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "96731C5C-E521-4D7D-9516-F339FABF6B53 - 3622621241fe4b99"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "People.HomeVC.FailureAlert(with: Swift.String) -&gt; ()"
+                  moduleName = "People"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amrali/Desktop/People/People/Features/HomeView/View/HomeVC+PresenterProtocols.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "416">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
